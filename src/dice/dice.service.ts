@@ -7,7 +7,7 @@ export class DiceService {
   private diceSize: number = 7;
   private whiteColor = Jimp.rgbaToInt(255, 255, 255, 255);
   private blackColor = Jimp.rgbaToInt(0, 0, 0, 255);
-  private grayColor = Jimp.rgbaToInt(150, 150, 150, 255);
+  private grayColor = Jimp.rgbaToInt(128, 128, 128, 255);
   private dicesImageList: Jimp[] = [];
 
   constructor() {
