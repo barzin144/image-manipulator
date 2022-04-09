@@ -1,7 +1,7 @@
 {
-  "name": "pixelate-me",
+  "name": "image-manipulator",
   "version": "1.0.0",
-  "description": "this app pixelates the given image",
+  "description": "this app manipulate the given image",
   "author": "Barzin Assa",
   "private": true,
   "license": "UNLICENSED",
