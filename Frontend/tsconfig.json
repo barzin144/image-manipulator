@@ -1,0 +1,14 @@
+{
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"],
+    "compilerOptions": {
+        "allowJs": false,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "noImplicitAny": true,
+        "target": "es5",
+        "module": "ESNext",
+        "lib": ["ESNext","DOM"],
+        "jsx": "react"
+    }
+}

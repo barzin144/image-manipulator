@@ -1,0 +1,14 @@
+body {
+  font-family: "Permanent Marker";
+  font-size: 2rem;
+  background-color: #272b30;
+  padding: 0;
+  margin: 0;
+}
+.buyMe {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}

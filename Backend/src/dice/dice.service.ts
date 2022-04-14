@@ -49,11 +49,9 @@ export class DiceService {
         );
       }
     }
+    const result = await dicelate.getBase64Async(Jimp.MIME_JPEG);
 
-    fs.writeFile("dice-out.jpeg", await dicelate.getBufferAsync(Jimp.MIME_JPEG), (error) =>
-      console.log(error)
-    );
-    return true;
+    return { image: result };
   }
 
   //a generator which return xy of biger pixel
