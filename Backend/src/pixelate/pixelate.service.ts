@@ -24,10 +24,9 @@ export class PixelateService {
       }
     }
 
-    fs.writeFile("out.jpeg", await pixelate.getBufferAsync(Jimp.MIME_JPEG), (error) =>
-      console.log(error)
-    );
-    return true;
+    const result = await pixelate.getBase64Async(Jimp.MIME_JPEG);
+
+    return { image: result };
   }
 
   //a generator which return xy of biger pixel

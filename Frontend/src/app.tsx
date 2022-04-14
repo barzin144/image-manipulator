@@ -21,6 +21,13 @@ const App = () => {
       .then((response) => setImage({ dataUrl: response.data.image }));
   };
 
+  const pixelMeClick = () => {
+    const data = { base64Image: image.dataUrl };
+    axios
+      .post("http://localhost:8081/pixelate/receiveImage", data)
+      .then((response) => setImage({ dataUrl: response.data.image }));
+  };
+
   return (
     <div className="App">
       <p>This tool changes your avatar &#128513;</p>
@@ -38,7 +45,7 @@ const App = () => {
       </Upload>
       {!!image && (
         <div>
-          <span className="btn">
+          <span className="btn" onClick={pixelMeClick}>
             <i className="fa-solid fa-clone"></i>pixel me
           </span>
           <span className="btn" onClick={diceMeClick}>
