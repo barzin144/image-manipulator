@@ -22,7 +22,7 @@ const App = () => {
     const data = { base64Image: image.dataUrl };
     setIsLoading(true);
     axios
-      .post("http://localhost:8081/dice/receiveImage", data)
+      .post(`${process.env.PUBLIC_URL}/dice/receiveImage`, data)
       .then((response) => {
         setResultImage(response.data.image);
         setImageIsChanged(true);
@@ -42,7 +42,7 @@ const App = () => {
     const data = { base64Image: image.dataUrl };
     setIsLoading(true);
     axios
-      .post("http://localhost:8081/pixelate/receiveImage", data)
+      .post(`${process.env.PUBLIC_URL}/pixelate/receiveImage`, data)
       .then((response) => {
         setResultImage(response.data.image);
         setImageIsChanged(true);

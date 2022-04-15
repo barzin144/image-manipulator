@@ -6,7 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const options = {
-    origin: "http://localhost:8080",
+    origin: "*",
     methods: "GET,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
     credentials: true,
@@ -14,6 +14,6 @@ async function bootstrap() {
 
   app.enableCors(options);
   app.use(json({ limit: "5mb" }));
-  await app.listen(8081);
+  await app.listen(process.env.PORT || 8081, () => console.log("Server is running..."));
 }
 bootstrap();
