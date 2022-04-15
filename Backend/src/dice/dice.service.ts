@@ -18,7 +18,9 @@ export class DiceService {
 
   async dicelateImage(base64Image: string) {
     //convert base64 image to Jimp image object
-    const image: Jimp = (await this.returnImageFromBase64String(base64Image)).grayscale();
+    const image: Jimp = (await this.returnImageFromBase64String(base64Image))
+      .contrast(0.5)
+      .grayscale();
 
     // return error if the image is large
     if (image.bitmap.width > 500 || image.bitmap.height > 500) {
