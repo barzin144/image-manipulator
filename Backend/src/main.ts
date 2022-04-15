@@ -6,7 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const options = {
-    origin: "*",
+    origin: "https://barzin144.github.io",
     methods: "GET,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
     credentials: true,
