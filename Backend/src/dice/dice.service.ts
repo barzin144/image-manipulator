@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
-import * as fs from "fs";
 import * as Jimp from "jimp";
+import ServiceResponse from "src/helpers/serviceResponse";
 
 @Injectable()
 export class DiceService {
@@ -19,6 +19,11 @@ export class DiceService {
   async dicelateImage(base64Image: string) {
     //convert base64 image to Jimp image object
     const image: Jimp = (await this.returnImageFromBase64String(base64Image)).grayscale();
+
+    // return error if the image is large
+    if (image.bitmap.width > 500 || image.bitmap.height > 500) {
+      return new ServiceResponse(null, "The image is larger than 500px x 500px", false);
+    }
 
     //create new blank image
     let dicelate = new Jimp(
@@ -51,7 +56,7 @@ export class DiceService {
     }
     const result = await dicelate.getBase64Async(Jimp.MIME_JPEG);
 
-    return { image: result };
+    return new ServiceResponse({ image: result }, null, true);
   }
 
   //a generator which return xy of biger pixel
