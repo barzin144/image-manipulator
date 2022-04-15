@@ -32,6 +32,9 @@ module.exports = merge(common, {
   plugins: [
     new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" }),
     new CleanWebpackPlugin(),
+    new webpack.EnvironmentPlugin({
+      "process.env.PUBLIC_URL": JSON.stringify(process.env.PUBLIC_URL),
+    }),
   ],
   module: {
     rules: [
